@@ -1,0 +1,391 @@
+<?php
+	include 'BaseDAO.php';
+	
+	class coverDAO extends BaseDAO{
+		
+	
+			function viewPost(){
+			$this->openConn();
+			$stmt = $this->dbh->prepare("SELECT * FROM Post order by id desc");
+			$stmt->execute();
+			$id = $this->dbh->lastInsertId();
+			
+			$this->closeConn();
+			
+			while($row = $stmt->fetch()){
+			
+			
+				
+				echo 
+				"<fieldset style = 'background-color:white;'>
+				<img src = 'images/arrow-down-icon2.png' style = 'float:right;' id = 'img_menu'></img>
+				<a href = 'profile.php' class = 'same'>
+				<strong style = 'font-size:12px;'>".$row[1]."</strong>
+				</a>
+				<fieldset style = 'background-color:white;'>"
+				.$row[2].
+				"</fieldset>
+				<a style = 'font-size:11px;color:#448999;' class = 'unLike' title = 'Stop liking this item' onclick = 'UnLikePost(".$row[0].")'>Unlike</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Like' title = 'Like this item' onclick = 'likePost(".$row[0].")'>Like</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Comment' title = 'Leave a comment' onclick = 'viewComment(".$row[0].")'>Comment</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.'>Share</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<img src = 'images/Thumb-up-icon.png'>
+				<img src = 'images/bubble-chat-icon.png'>
+				
+				
+				
+				
+				<script>
+				$('.div_comment').hide();
+				$('.unLike').hide();
+				</script>
+				
+
+				</fieldset>
+				<br />";
+				
+			}
+			
+			
+		}
+		
+		
+			function viewSports(){
+			$this->openConn();
+			$stmt = $this->dbh->prepare("SELECT * FROM Post WHERE Topic = 'Sports' order by id desc");
+			$stmt->execute();
+			$id = $this->dbh->lastInsertId();
+			
+			$this->closeConn();
+			
+			while($row = $stmt->fetch()){
+			
+			
+				
+				echo 
+				"<fieldset>
+				<img src = 'images/arrow-down-icon2.png' style = 'float:right;' id = 'img_menu'></img>
+				<a href = 'profile.php' class = 'same'>
+				<strong style = 'font-size:12px;'>".$row[1]."</strong>
+				</a>
+				<fieldset style = 'background-color:white;'><br><i style = 'color:red;'><a><strong>".$row[3]."</strong></a></i><br><br>"
+				.$row[2].
+				"</br></br></fieldset>
+				<a style = 'font-size:11px;color:#448999;' class = 'unLike' title = 'Stop liking this item' onclick = 'UnLikePost(".$row[0].")'>Unlike</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Like' title = 'Like this item' onclick = 'likePost(".$row[0].")'>Like</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Comment' title = 'Leave a comment' onclick = 'viewComment(".$row[0].")'>Comment</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.'>Share</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<img src = 'images/Thumb-up-icon.png'>
+				<img src = 'images/bubble-chat-icon.png'>
+				
+				
+				
+				
+				<script>
+				$('.div_comment').hide();
+				$('.unLike').hide();
+				</script>
+				
+
+				</fieldset>
+				<br />";
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+		function viewBusiness(){
+			$this->openConn();
+			$stmt = $this->dbh->prepare("SELECT * FROM Post WHERE Topic = 'Business' order by id desc");
+			$stmt->execute();
+			$id = $this->dbh->lastInsertId();
+			
+			$this->closeConn();
+			
+			while($row = $stmt->fetch()){
+			
+			
+				
+				echo 
+				"<fieldset>
+				<img src = 'images/arrow-down-icon2.png' style = 'float:right;' id = 'img_menu'></img>
+				<a href = 'profile.php' class = 'same'>
+				<strong style = 'font-size:12px;'>".$row[1]."</strong>
+				</a>
+				<fieldset style = 'background-color:white;'><br><i style = 'color:#1E90FF;'><a><strong>".$row[3]."</strong></a></i><br><br>"
+				.$row[2].
+				"</br></br></fieldset>
+				<a style = 'font-size:11px;color:#448999;' class = 'unLike' title = 'Stop liking this item' onclick = 'UnLikePost(".$row[0].")'>Unlike</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Like' title = 'Like this item' onclick = 'likePost(".$row[0].")'>Like</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Comment' title = 'Leave a comment' onclick = 'viewComment(".$row[0].")'>Comment</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.'>Share</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<img src = 'images/Thumb-up-icon.png'>
+				<img src = 'images/bubble-chat-icon.png'>
+				
+				
+				
+				
+				<script>
+				$('.div_comment').hide();
+				$('.unLike').hide();
+				</script>
+				
+
+				</fieldset>
+				<br />";
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			function viewInternational(){
+			$this->openConn();
+			$stmt = $this->dbh->prepare("SELECT * FROM Post WHERE Topic = 'International' order by id desc");
+			$stmt->execute();
+			$id = $this->dbh->lastInsertId();
+			
+			$this->closeConn();
+			
+			while($row = $stmt->fetch()){
+			
+			
+				
+				echo 
+				"<fieldset>
+				<img src = 'images/arrow-down-icon2.png' style = 'float:right;' id = 'img_menu'></img>
+				<a href = 'profile.php' class = 'same'>
+				<strong style = 'font-size:12px;'>".$row[1]."</strong>
+				</a>
+				<fieldset style = 'background-color:white;'><br><i style = 'color:#800000;'><a><strong>".$row[3]."</strong></a></i><br><br>"
+				.$row[2].
+				"</br></br></fieldset>
+				<a style = 'font-size:11px;color:#448999;' class = 'unLike' title = 'Stop liking this item' onclick = 'UnLikePost(".$row[0].")'>Unlike</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Like' title = 'Like this item' onclick = 'likePost(".$row[0].")'>Like</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Comment' title = 'Leave a comment' onclick = 'viewComment(".$row[0].")'>Comment</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.'>Share</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<img src = 'images/Thumb-up-icon.png'>
+				<img src = 'images/bubble-chat-icon.png'>
+				
+				
+				
+				
+				<script>
+				$('.div_comment').hide();
+				$('.unLike').hide();
+				</script>
+				
+
+				</fieldset>
+				<br />";
+				
+			}
+			
+			
+		}
+		
+		
+		
+		function viewHealth(){
+			$this->openConn();
+			$stmt = $this->dbh->prepare("SELECT * FROM Post WHERE Topic = 'Health' order by id desc");
+			$stmt->execute();
+			$id = $this->dbh->lastInsertId();
+			
+			$this->closeConn();
+			
+			while($row = $stmt->fetch()){
+			
+			
+				
+				echo 
+				"<fieldset>
+				<img src = 'images/arrow-down-icon2.png' style = 'float:right;' id = 'img_menu'></img>
+				<a href = 'profile.php' class = 'same'>
+				<strong style = 'font-size:12px;'>".$row[1]."</strong>
+				</a>
+				<fieldset style = 'background-color:white;'><br><i style = 'color:#9ACD32;'><a><strong>".$row[3]."</strong></a></i><br><br>"
+				.$row[2].
+				"</br></br></fieldset>
+				<a style = 'font-size:11px;color:#448999;' class = 'unLike' title = 'Stop liking this item' onclick = 'UnLikePost(".$row[0].")'>Unlike</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Like' title = 'Like this item' onclick = 'likePost(".$row[0].")'>Like</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Comment' title = 'Leave a comment' onclick = 'viewComment(".$row[0].")'>Comment</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.'>Share</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<img src = 'images/Thumb-up-icon.png'>
+				<img src = 'images/bubble-chat-icon.png'>
+				
+				
+				
+				
+				<script>
+				$('.div_comment').hide();
+				$('.unLike').hide();
+				</script>
+				
+
+				</fieldset>
+				<br />";
+				
+			}
+			
+			
+		}
+		
+		
+		function viewWeather(){
+		
+			$this->openConn();
+			$stmt = $this->dbh->prepare("SELECT * FROM Post WHERE Topic = 'Weather' order by id desc");
+			$stmt->execute();
+			$id = $this->dbh->lastInsertId();
+			
+			$this->closeConn();
+			
+			while($row = $stmt->fetch()){
+			
+			
+				
+				echo 
+				"<fieldset>
+				<img src = 'images/arrow-down-icon2.png' style = 'float:right;' id = 'img_menu'></img>
+				<a href = 'profile.php' class = 'same'>
+				<strong style = 'font-size:12px;'>".$row[1]."</strong>
+				</a>
+				<fieldset style = 'background-color:white;'><br><i style = 'color:#4169E1;'><a><strong>".$row[3]."</strong></a></i><br><br>"
+				.$row[2].
+				"</br></br></fieldset>
+				<a style = 'font-size:11px;color:#448999;' class = 'unLike' title = 'Stop liking this item' onclick = 'UnLikePost(".$row[0].")'>Unlike</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Like' title = 'Like this item' onclick = 'likePost(".$row[0].")'>Like</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Comment' title = 'Leave a comment' onclick = 'viewComment(".$row[0 ].")'>Comment</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.'>Share</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<img src = 'images/Thumb-up-icon.png'>
+				<img src = 'images/bubble-chat-icon.png'>
+				
+				
+				
+				
+				<script>
+				$('.div_comment').hide();
+				$('.unLike').hide();
+				</script>
+				
+
+				</fieldset>
+				<br />";
+				
+			}
+			
+			
+		}
+		
+		
+		function viewFeatureArticle(){
+			$this->openConn();
+			$stmt = $this->dbh->prepare("SELECT * FROM Post WHERE Topic = 'Entertainment' order by id desc");
+			$stmt->execute();
+			$id = $this->dbh->lastInsertId();
+			
+			$this->closeConn();
+			
+			while($row = $stmt->fetch()){
+			
+			
+				
+				echo 
+				"<fieldset>
+				<img src = 'images/arrow-down-icon2.png' style = 'float:right;' id = 'img_menu'></img>
+				<a href = 'profile.php' class = 'same'>
+				<strong style = 'font-size:12px;'>".$row[1]."</strong>
+				</a>
+				<fieldset style = 'background-color:white;'><br><i style = 'color:#C71585;'><a><strong>".$row[3]."</strong></a></i><br><br>"
+				.$row[2].
+				"</br></br></fieldset>
+				<a style = 'font-size:11px;color:#448999;' class = 'unLike' title = 'Stop liking this item' onclick = 'UnLikePost(".$row[0].")'>Unlike</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Like' title = 'Like this item' onclick = 'likePost(".$row[0].")'>Like</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Comment' title = 'Leave a comment' onclick = 'viewComment(".$row[0].")'>Comment</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.'>Share</a>
+				<a style = 'font-size:11px;color:#448999;'>-</a>
+				<img src = 'images/Thumb-up-icon.png'>
+				<img src = 'images/bubble-chat-icon.png'>
+				
+				
+				
+				
+				<script>
+				$('.div_comment').hide();
+				$('.unLike').hide();
+				</script>
+				
+
+				</fieldset>
+				<br />";
+				
+			}
+			
+			
+		}
+		
+		
+		
+		function viewComment($id){
+			
+			$this->openConn();
+			
+			$stmt = $this->dbh->prepare("SELECT * FROM comment WHERE Post_id = ?");
+			$stmt->bindParam(1, $id);
+			$stmt->execute();
+			$id = $this->dbh->lastInsertId();
+			
+			$this->closeConn();
+			while($row = $stmt->fetch()){
+				
+				echo "<fieldset class = 'fieldId'><a class = 'same' href = 'profile.php'><strong style = 'font-size:10px;'>".$row[1]."</a></strong> ".$row[2]."</fieldset>";
+ 				 
+			}
+
+			
+		}
+		
+		
+		
+		
+	}
+?>

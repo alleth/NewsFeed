@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign In First | NewsFeed</title>
+<link rel = "shortcut icon" href = "images/newspaper.jpeg"/>
+
+<link rel = "stylesheet" href = "css/style3.css"/>
+<script src="js/jquery-1.8.2.min.js"></script>
+<script src = "js/jquery-ui.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.css" />
+<script src="js/homepage.js"></script>
+
+</head>
+
+<body>
+
+
+	<div id = "divlogo">
+		<fieldset id = "logo"><strong>NewsFeed</strong></fieldset>
+	</div>
+	
+	<div id = "notSign">
+		<h1 id = "headSign">You must be Sign In first</h1>
+		
+		<table >
+		   <tr>
+		   <form name="form1" method="POST" action="login.php">
+			 <td>
+			    <table>
+			    <tr>
+				  <td colspan="3">
+				  <strong id = "atag">Login </strong></td>
+			    </tr>
+			    <tr>
+				  <td width="294"><input placeholder = "Username" name="username" type="text" id="username"></td>
+			    </tr>
+			    <tr>
+				  <td><input placeholder = "Password" name="password" type="password" id="password"></td>
+			    </tr>
+			    <tr>
+				  
+				  <td><input type="submit" name="Submit" class = "btn_in" value="Login"></td>
+			    </tr>
+			    </table>
+			 </td>
+		   </form>
+		   </tr>
+		</table>
+	</div>
+
+
+
+</body>
+</html>

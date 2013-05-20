@@ -1,0 +1,45 @@
+#headSign{
+font-family:Verdana;
+background-color:#C7C777;
+font-size:20px;
+text-align:center;
+height:40px;
+color:red;
+}
+
+#logo{
+font-family:Verdana;
+border:0;
+}
+
+#divlogo{
+background-color:#C7C777;
+color:#448999;
+}
+
+
+#notSign{
+width:600px;
+margin: 0 0 0 340px;
+height:500px;
+}
+
+.btn_in{
+background:-webkit-linear-gradient(top, #448999, #556B2F);
+background:-moz-linear-gradient(top, #448999, #556B2F);
+border:0;
+cursor:pointer;
+color:white;
+}
+
+.btn_in:hover{
+background:-webkit-linear-gradient(top, #556B2F, #448999);
+background:-moz-linear-gradient(top, #556B2F, #448999);
+border:0;
+}
+
+
+
+#atag{
+font-family:Verdana;
+}

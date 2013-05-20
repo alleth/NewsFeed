@@ -1,0 +1,29 @@
+<?php
+   session_start();
+   if (!isset ($_SESSION['username'])){
+      header("location:signInFirst.php");
+      
+   }else {
+    	$username = $_SESSION['username'];
+    	
+   }
+      
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+
+<body>
+<h1>My Profile</h1>
+<div>
+
+
+</div>
+
+
+</body>
+
+</html>

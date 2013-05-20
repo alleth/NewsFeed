@@ -1,0 +1,3 @@
+SELECT name,places FROM FavPlace as fp, Users as u, Places as p WHERE fp.place_id = p.place_id AND u.users_id = fv.users_id AND u.name = 'Maria'; 
+
+SELECT p.name FROM 

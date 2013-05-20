@@ -1,0 +1,8 @@
+<?php
+	include 'dao/SystemDAO.php';
+	
+	$search = $_POST['Title'];
+	
+	$action = new SystemDAO();
+	$action->searchNews($search);
+?>

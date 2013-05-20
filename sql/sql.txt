@@ -1,0 +1,8 @@
+Select customers.address from sales, customers where sales.customerID = customers.ID and sales.productID = 1;
+
+
+2.) SELECT d.name FROM employee as e, dependent as d, dependent.relationship as dr, WHERE d.dep_no = dr dep_no AND e.emp_no = dr.emp_no AND e.name = 'John';
+
+
+
+myPost . . . . (" SELECT c.message FROM List_of_Account as loa, Post as p, comment as c WHERE loa.id = c.users_id AND p.id = '1'");

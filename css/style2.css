@@ -725,3 +725,14 @@
     width: 220px;
     height: 200px;
 }
+
+#divModal{
+    margin-left: 15px;
+
+}
+
+#iconId{
+    margin-bottom: 23px;
+    margin-left: 5px;
+    width: 40px;
+}

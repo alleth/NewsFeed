@@ -3,7 +3,7 @@
 
     class coverDAO extends BaseDAO{
 
-			function viewSports(){
+			function viewSports($Username){
 			$this->openConn();
 			$stmt = $this->dbh->prepare("SELECT * FROM Post WHERE Topic = 'Sports' order by id desc");
 			$stmt->execute();
@@ -29,7 +29,7 @@
 				<a style = 'font-size:11px;color:#448999;'>-</a>
 				<a style = 'font-size:11px;color:#448999;' class = 'Comment' title = 'Leave a comment' onclick = 'viewComment(".$row[0].")'>Comment</a>
 				<a style = 'font-size:11px;color:#448999;'>-</a>
-				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.' onclick = '(".$row[0].")'>Share</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.' onclick = 'share(".$row[0].")'>Share</a>
 				<a style = 'font-size:11px;color:#448999;'>-</a>
 				<img src = 'images/Thumb-up-icon.png'><div id = 'countLike'></div>
 				<img src = 'images/bubble-chat-icon.png'>
@@ -42,7 +42,33 @@
 				<input class = 'input_comment' id = 'new_comment_".$row[0]."' name = 'Comment' type = 'textbox' placeholder = 'Write a comment...' title = 'Write a comment...'>
 				<button id = 'btn_comment'  onclick = 'addComment(".$row[0].")'>Done</button>
 				</div>
-				
+
+
+				<div id = 'tryModal' class = 'modal hide fade' tabindex = '-1' role = 'dialog' aria-labelledby='myModalLabel' aria-hidden = 'true'>
+				    <div>
+				        <div class = 'modal-header'>
+				        <button type='button'' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
+				        <strong><a>".$Username."</a></strong>
+				        </div>
+				        <div id = 'divModal'>
+				            <strong><p>Share to:</p></strong>
+				            <input type = 'text' placeholder = 'Find friends...' id = 'srchToShare' onclick = 'nptShare(".$row[0].")'><img id = 'iconId' src = 'images/users.png'>
+				            <div id = 'srchFriends'>
+
+				            </div>
+				        </div>
+				        <div class = 'modal-footer'>
+                            <button class = 'btn' data-dismiss = 'modal' area-hidden='true'>Cancel</button>
+                            <button class = 'btn btn-primary'>Share</button>
+				        </div>
+				    </div>
+				</div>
+
+
+
+
+
+
 				
 				<script>
 				$('.div_comment').hide();
@@ -61,7 +87,7 @@
 		
 		
 		
-		function viewBusiness(){
+		function viewBusiness($Username){
 			$this->openConn();
 			$stmt = $this->dbh->prepare("SELECT * FROM Post WHERE Topic = 'Business' order by id desc");
 			$stmt->execute();
@@ -87,12 +113,12 @@
 				<a style = 'font-size:11px;color:#448999;'>-</a>
 				<a style = 'font-size:11px;color:#448999;' class = 'Comment' title = 'Leave a comment' onclick = 'viewComment(".$row[0].")'>Comment</a>
 				<a style = 'font-size:11px;color:#448999;'>-</a>
-				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.'>Share</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.' onclick = 'share(".$row[0].")'>Share</a>
 				<a style = 'font-size:11px;color:#448999;'>-</a>
 				<img src = 'images/Thumb-up-icon.png'><div id = 'countLike'></div>
 				<img src = 'images/bubble-chat-icon.png'>
 				<div class = 'divTime'>".$row[5]."</div>
-				
+
 				<div class = 'view_comment' id = 'view_comment_".$row[0]."'></div>
 				</br>
 				<div class = 'div_comment'>
@@ -100,13 +126,39 @@
 				<input class = 'input_comment' id = 'new_comment_".$row[0]."' name = 'Comment' type = 'textbox' placeholder = 'Write a comment...' title = 'Write a comment...'>
 				<button id = 'btn_comment'  onclick = 'addComment(".$row[0].")'>Done</button>
 				</div>
-				
-				
+
+
+
+
+				<div id = 'tryModal' class = 'modal hide fade' tabindex = '-1' role = 'dialog' aria-labelledby='myModalLabel' aria-hidden = 'true'>
+				    <div>
+				        <div class = 'modal-header'>
+				        <button type='button'' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
+				        <strong><a>".$Username."</a></strong>
+				        </div>
+				        <div id = 'divModal'>
+				            <strong><p>Share to:</p></strong>
+				            <input type = 'text' placeholder = 'Find friends...' id = 'srchToShare' onclick = 'nptShare(".$row[0].")'><img id = 'iconId' src = 'images/users.png'>
+				            <div id = 'srchFriends'>
+
+				            </div>
+				        </div>
+				        <div class = 'modal-footer'>
+                            <button class = 'btn' data-dismiss = 'modal' area-hidden='true'>Cancel</button>
+                            <button class = 'btn btn-primary'>Share</button>
+				        </div>
+				    </div>
+				</div>
+
+
+
+
+
 				<script>
 				$('.div_comment').hide();
 				$('.unLike').hide();
 				</script>
-				
+
 
 				</fieldset>
 				<br />";
@@ -130,7 +182,7 @@
 		
 		
 		
-			function viewInternational(){
+			function viewInternational($Username){
 			$this->openConn();
 			$stmt = $this->dbh->prepare("SELECT * FROM Post WHERE Topic = 'International' order by id desc");
 			$stmt->execute();
@@ -156,7 +208,7 @@
 				<a style = 'font-size:11px;color:#448999;'>-</a>
 				<a style = 'font-size:11px;color:#448999;' class = 'Comment' title = 'Leave a comment' onclick = 'viewComment(".$row[0].")'>Comment</a>
 				<a style = 'font-size:11px;color:#448999;'>-</a>
-				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.'>Share</a>
+				<a style = 'font-size:11px;color:#448999;' class = 'Share' title = 'Send this to friend or post it on your timeline.' onclick = 'share(".$row[0].")'>Share</a>
 				<a style = 'font-size:11px;color:#448999;'>-</a>
 				<img src = 'images/Thumb-up-icon.png'><div id = 'countLike'></div>
 				<img src = 'images/bubble-chat-icon.png'>
@@ -170,7 +222,36 @@
 				<button id = 'btn_comment'  onclick = 'addComment(".$row[0].")'>Done</button>
 				</div>
 				
-				
+
+				<div id = 'tryModal' class = 'modal hide fade' tabindex = '-1' role = 'dialog' aria-labelledby='myModalLabel' aria-hidden = 'true'>
+				    <div>
+				        <div class = 'modal-header'>
+				        <button type='button'' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
+				        <strong><a>".$Username."</a></strong>
+				        </div>
+				        <div id = 'divModal'>
+				            <strong><p>Share to:</p></strong>
+				            <input type = 'text' placeholder = 'Find friends...' id = 'srchToShare' onclick = 'nptShare(".$row[0].")'><img id = 'iconId' src = 'images/users.png'>
+				            <div id = 'srchFriends'>
+
+				            </div>
+				        </div>
+				        <div class = 'modal-footer'>
+                            <button class = 'btn' data-dismiss = 'modal' area-hidden='true'>Cancel</button>
+                            <button class = 'btn btn-primary'>Share</button>
+				        </div>
+				    </div>
+				</div>
+
+
+
+
+
+
+
+
+
+
 				<script>
 				$('.div_comment').hide();
 				$('.unLike').hide();

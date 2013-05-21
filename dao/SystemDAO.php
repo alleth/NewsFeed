@@ -562,6 +562,28 @@
             }
 
         }
+
+
+
+        function srchFriends($searchF){
+
+            $this->openConn();
+
+            $stmt = $this->dbh->prepare("SELECT * FROM List_of_Account WHERE Firstname = ?");
+
+            $stmt->bindParam(1, $searchF);
+            $stmt->execute();
+
+            $this->closeConn();
+
+
+            while($row = $stmt->fetch()){
+
+                echo "<div>".$row[1]."</div>";
+
+            }
+
+        }
 		
 		
 		

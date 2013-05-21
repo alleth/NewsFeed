@@ -757,3 +757,53 @@ $(function() {
 
 
     }
+
+
+    function share(id){
+
+        $("#tryModal").modal();
+
+    }
+
+
+    function nptShare(id){
+
+
+        $("#srchToShare").keyup(function(){
+
+
+
+            var srchCond = $("#srchToShare").val();
+
+            if (srchCond == ""){
+
+                $("#srchFriends").slideUp(500);
+
+            }else{
+
+                $("#srchFriends").slideDown(500);
+
+                var names = $("input[name='Search']").val();
+                var compare = {"Firstname":names};
+
+                $.ajax({
+                    type: "POST",
+                    url: "search_friends.php",
+                    data: compare,
+                    success: function(data){
+                        $("#srchFriends").html(data);
+                    },
+                    error: function(data){
+                        alert(data);
+                    }
+                });
+
+            }
+
+        });
+
+
+
+
+
+    }
